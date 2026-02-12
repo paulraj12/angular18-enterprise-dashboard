@@ -1,0 +1,6 @@
+<input (input)="onSearch($event)" placeholder="Search users" />
+@for (user of users; track user.id) {
+  <div>
+    {{ user.firstName }} {{ user.lastName }}
+  </div>
+}
