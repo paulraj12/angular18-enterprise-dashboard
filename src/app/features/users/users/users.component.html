@@ -1,6 +1,48 @@
-<input (input)="onSearch($event)" placeholder="Search users" />
+
+<div class="users-container">
+
+  <!-- USERS LIST -->
+  <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;">
+    <h3>Users</h3>
+
+    @if (loading()) {
+      <p>Loading users...</p>
+    } @else {
+      @for (user of users(); track user.id) {
+        <div
+          class="user-item"
+          (click)="selectUser(user)"
+        >
+          {{ user.firstName }} {{ user.lastName }}
+        </div>
+      }
+    }
+  </div>
+
+  <!-- USER DETAILS -->
+  <div class="user-details" style="width: 60%; float: left;">
+    @if (selectedUser()) {
+      <h3>User Details</h3>
+
+      <img [src]="selectedUser()!.image" />
+
+      <p><strong>Name:</strong> {{ selectedUser()!.firstName }} {{ selectedUser()!.lastName }}</p>
+      <p><strong>Email:</strong> {{ selectedUser()!.email }}</p>
+      <p><strong>Phone:</strong> {{ selectedUser()!.phone }}</p>
+      <p><strong>Gender:</strong> {{ selectedUser()!.gender }}</p>
+      <p><strong>Age:</strong> {{ selectedUser()!.age }}</p>
+
+    } @else {
+      <p>Select a user to view details</p>
+    }
+  </div>
+
+</div>
+
+
+<!-- <input (input)="onSearch($event)" placeholder="Search users" />
 @for (user of users; track user.id) {
   <div>
     {{ user.firstName }} {{ user.lastName }}
   </div>
-}
+} -->

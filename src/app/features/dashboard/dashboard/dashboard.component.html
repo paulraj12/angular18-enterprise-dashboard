@@ -1,2 +1,28 @@
- <h2>Dashboard</h2>
-    <p>Welcome {{ user()?.name }}</p>
+<h2>Dashboard</h2>
+
+<div class="dashboard">
+
+   <h2>Welcome, {{ userName() }}</h2>
+   <p class="role">Role: {{ role() }}</p>
+
+   <!-- KPI Cards -->
+   <div class="cards">
+      @for (stat of stats; track stat.title) {
+      <div class="card">
+         <h3>{{ stat.title }}</h3>
+         <p class="value">{{ stat.value }}</p>
+      </div>
+      }
+   </div>
+
+   <!-- Activity Section -->
+   <div class="activity">
+      <h3>Recent Activity</h3>
+      <ul>
+         <li>✔ User logged in</li>
+         <li>✔ Dashboard accessed</li>
+         <li>✔ Auth token validated</li>
+      </ul>
+   </div>
+
+</div>
