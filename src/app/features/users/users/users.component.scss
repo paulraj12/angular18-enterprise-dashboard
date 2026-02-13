@@ -1,0 +1,17 @@
+.user-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    list-style-type: none;
+    /* Remove bullets */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+
+}
+
+.list-group-item.active {
+    background-color: #000;
+    border-color: #000;
+    color: white;
+}

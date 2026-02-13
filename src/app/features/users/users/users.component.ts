@@ -38,9 +38,16 @@ export class UsersComponent {
     });
   }
 
-  selectUser(user: User) {
-    this.selectedUser.set(user);
+  selectedUserId = signal<number | null>(null);
+
+  selectUserId(id: number, user: User) {
+    this.selectedUserId.set(id);
+      this.selectedUser.set(user);
   }
+
+  // selectUser(user: User) {
+  //   this.selectedUser.set(user);
+  // }
 }
 
 

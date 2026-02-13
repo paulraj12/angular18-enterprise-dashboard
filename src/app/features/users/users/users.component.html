@@ -2,29 +2,55 @@
 <div class="users-container">
 
   <!-- USERS LIST -->
-  <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;">
-    <h3>Users</h3>
-
+  <div class="users-list ">
+    <div class="mb-3"><h2>Users</h2></div>
+   <!-- <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px; ">
     @if (loading()) {
       <p>Loading users...</p>
     } @else {
       @for (user of users(); track user.id) {
-        <div
-          class="user-item"
+        <ul
+          class="list-group"
           (click)="selectUser(user)"
         >
-          {{ user.firstName }} {{ user.lastName }}
-        </div>
+        <li class="list-group-item" (click)="selectUser(user)" [class.active]="selectedUserId() === user.id">  {{ user.firstName }} {{ user.lastName }} </li>
+      </ul>
       }
     }
-  </div>
+  </div> -->
+
+  <div
+  class="users-list"
+  style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;"
+>
+
+  @if (loading()) {
+    <p>Loading users...</p>
+  } @else {
+
+    <ul class="list-group">
+      @for (user of users(); track user.id) {
+        <li
+          class="list-group-item"
+          (click)="selectUserId(user.id, user)"
+          [class.active]="selectedUserId() === user.id"
+          style="cursor: pointer;"
+        >
+          {{ user.firstName }} {{ user.lastName }}
+        </li>
+      }
+    </ul>
+
+  }
+</div>
+
 
   <!-- USER DETAILS -->
-  <div class="user-details" style="width: 60%; float: left;">
+  <div class="user-details" style="width: 80%; float: right; padding-left: 20px;">
     @if (selectedUser()) {
-      <h3>User Details</h3>
+      <h5>User Details</h5>
 
-      <img [src]="selectedUser()!.image" />
+      <img class="m-3" [src]="selectedUser()!.image" />
 
       <p><strong>Name:</strong> {{ selectedUser()!.firstName }} {{ selectedUser()!.lastName }}</p>
       <p><strong>Email:</strong> {{ selectedUser()!.email }}</p>

@@ -1,78 +1,61 @@
 
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterModule } from '@angular/router';
+import { authStore } from './../../core/auth/auth.store';
+
 import { AuthService } from './../../core/services/auth.service';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   template: `
-    <nav  class="menu">
-      <a routerLink="/" style="color:white;margin-right:10px">Dashboard</a>
-      <a routerLink="/users" style="color:white;margin-right:10px">Users</a>
-      <button (click)="logout()">Logout</button>
-    </nav>
+    <nav *ngIf="isLoggedIn()" class="navbar navbar-expand navbar-dark bg-dark px-3">
+
+  <!-- <a class="navbar-brand" routerLink="/">Enterprise App</a> -->
+
+  <div class="navbar-nav">
+    <a
+      class="nav-link"
+      routerLink="/"
+      routerLinkActive="active"
+    >
+      Dashboard
+    </a>
+
+    <!-- ADMIN ONLY -->
+    <a
+      *ngIf="isAdmin()"
+      class="nav-link"
+      routerLink="/users"
+      routerLinkActive="active"
+    >
+      Users
+    </a>
+  </div>
+
+  <button class="btn btn-outline-light ms-auto" (click)="logout()">
+    Logout
+  </button>
+</nav>
+
   `,
   styles: [`
-    .menu {
-      display: flex;
-      gap: 16px;
-      padding: 12px;
-      background: #1976d2;
-      color: white;
-    }
-    a { color: white; text-decoration: none; }
-    .active { font-weight: bold; text-decoration: underline; }
-    button { margin-left: auto; }
+    .navbar .nav-link.active {
+      font-weight: bold;
+      border-bottom: 2px solid white;
+}
   `]
-  
+
 })
 export class MenuComponent {
-  constructor(private auth: AuthService) {}
+  isLoggedIn = computed(() => authStore.isLoggedIn());
+  isAdmin = computed(() => authStore.role() === 'ADMIN');
+  constructor(private auth: AuthService) { }
 
   logout() {
     this.auth.logout();
   }
 }
 
-
-// import { Component } from '@angular/core';
-// import { RouterLink, RouterLinkActive } from '@angular/router';
-// import { authStore } from '../../core/auth/auth.store';
-
-// @Component({
-//   selector: 'app-menu',
-//   standalone: true,
-//   imports: [RouterLink, RouterLinkActive],
-//   template: `
-//     <nav class="menu">
-//       <a routerLink="/" routerLinkActive="active">Dashboard</a>
-
-//       @if (role() === 'ADMIN') {
-//         <a routerLink="/users" routerLinkActive="active">Users</a>
-//       }
-
-//       <button (click)="logout()">Logout</button>
-//     </nav>
-//   `,
-//   styles: [`
-//     .menu {
-//       display: flex;
-//       gap: 16px;
-//       padding: 12px;
-//       background: #1976d2;
-//       color: white;
-//     }
-//     a { color: white; text-decoration: none; }
-//     .active { font-weight: bold; text-decoration: underline; }
-//     button { margin-left: auto; }
-//   `]
-// })
-// export class MenuComponent {
-//   role = authStore.role;
-
-//   logout() {
-//     authStore.user.set(null);
-//   }
-// }
