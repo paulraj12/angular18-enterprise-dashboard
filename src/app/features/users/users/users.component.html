@@ -1,53 +1,32 @@
-
 <div class="users-container">
 
   <!-- USERS LIST -->
   <div class="users-list ">
-    <div class="mb-3"><h2>Users</h2></div>
-   <!-- <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px; ">
-    @if (loading()) {
+    <div class="mb-3">
+      <h2>Users</h2>
+    </div>
+    <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;">
+
+      @if (loading()) {
       <p>Loading users...</p>
-    } @else {
-      @for (user of users(); track user.id) {
-        <ul
-          class="list-group"
-          (click)="selectUser(user)"
-        >
-        <li class="list-group-item" (click)="selectUser(user)" [class.active]="selectedUserId() === user.id">  {{ user.firstName }} {{ user.lastName }} </li>
-      </ul>
-      }
-    }
-  </div> -->
+      } @else {
 
-  <div
-  class="users-list"
-  style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;"
->
-
-  @if (loading()) {
-    <p>Loading users...</p>
-  } @else {
-
-    <ul class="list-group">
-      @for (user of users(); track user.id) {
-        <li
-          class="list-group-item"
-          (click)="selectUserId(user.id, user)"
-          [class.active]="selectedUserId() === user.id"
-          style="cursor: pointer;"
-        >
+      <ul class="list-group">
+        @for (user of users(); track user.id) {
+        <li class="list-group-item" (click)="selectUserId(user.id, user)" [class.active]="selectedUserId() === user.id"
+          style="cursor: pointer;">
           {{ user.firstName }} {{ user.lastName }}
         </li>
+        }
+      </ul>
+
       }
-    </ul>
-
-  }
-</div>
+    </div>
 
 
-  <!-- USER DETAILS -->
-  <div class="user-details" style="width: 80%; float: right; padding-left: 20px;">
-    @if (selectedUser()) {
+    <!-- USER DETAILS -->
+    <div class="user-details" style="width: 80%; float: right; padding-left: 20px;">
+      @if (selectedUser()) {
       <h5>User Details</h5>
 
       <img class="m-3" [src]="selectedUser()!.image" />
@@ -58,17 +37,9 @@
       <p><strong>Gender:</strong> {{ selectedUser()!.gender }}</p>
       <p><strong>Age:</strong> {{ selectedUser()!.age }}</p>
 
-    } @else {
+      } @else {
       <p>Select a user to view details</p>
-    }
+      }
+    </div>
+
   </div>
-
-</div>
-
-
-<!-- <input (input)="onSearch($event)" placeholder="Search users" />
-@for (user of users; track user.id) {
-  <div>
-    {{ user.firstName }} {{ user.lastName }}
-  </div>
-} -->
