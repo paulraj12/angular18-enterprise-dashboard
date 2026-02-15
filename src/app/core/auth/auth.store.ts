@@ -1,6 +1,6 @@
 import { signal, computed } from '@angular/core';
 
-export type Role = 'ADMIN' | 'USER';
+export type Role = 'ADMIN' | 'USER'| 'MANAGER'| 'GUEST';
 
 export interface User {
   name: string;
