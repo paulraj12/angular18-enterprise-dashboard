@@ -7,13 +7,13 @@ An enterprise-grade dashboard application built with Angular 18, showcasing mode
 https://github.com/paulraj12/angular18-enterprise-dashboard
 
 ## Features
-[x] Angular 18 Standalone Architecture
-[x] Signals-based State Management
-[x] Role-Based Login (Admin / Manager / User / Guest)
-[x] Dynamic KPI Dashboard
-[x] Enterprise Dashboard Layout
-[x] Authentication Store (Signal-based)
-[x] Clean Folder Structure
+- [x] Angular 18 Standalone Architecture
+- [x] Signals-based State Management
+- [x] Role-Based Login (Admin / Manager / User / Guest)
+- [x] Dynamic KPI Dashboard
+- [x] Enterprise Dashboard Layout
+- [x] Authentication Store (Signal-based)
+- [x] Clean Folder Structure
 
 
 ## Roles & Dashboard Views
