@@ -1,6 +1,60 @@
-# Angular18EnterpriseDashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+# Angular 18 Enterprise Dashboard
+
+An enterprise-grade dashboard application built with Angular 18, showcasing modern Angular architecture, Signals, role-based access, and scalable best practices used in real-world production applications.
+
+## Live Repo:
+https://github.com/paulraj12/angular18-enterprise-dashboard
+
+## Features
+
+- Angular 18 Standalone Architecture
+- Signals-based State Management
+- Role-Based Login (Admin / Manager / User / Guest)
+- Dynamic KPI Dashboard
+- Enterprise Dashboard Layout
+- Authentication Store (Signal-based)
+- Clean Folder Structure
+- Interview-Ready Codebase
+
+## Roles & Dashboard Views
+Role	Dashboard Capabilities
+ADMIN	System health, users, revenue, full KPIs
+MANAGER	Orders, team revenue, operational metrics
+USER	Personal activity, orders, profile info
+GUEST	Read-only / limited access
+
+## Tech Stack
+- Angular 18
+- TypeScript
+- Angular Signals
+- Standalone Components
+- SCSS
+- Bootstrap
+- Chart.js (ng2-charts) (for dashboards)
+- Modern Control Flow (@if, @for)
+
+## Dashboard KPIs
+- Total Users
+- Monthly Revenue
+- Orders
+- System Health
+- Role-specific metrics
+- Dashboard UI automatically adapts based on logged-in role.
+
+## Why Signals?
+- No RxJS boilerplate
+- Fine-grained reactivity
+- Better performance
+- Angular 18 recommended approach
+
+## Roadmap (Planned Enhancements)
+- API-based dynamic dashboard data
+- Role-based route guards
+- Lazy-loaded feature modules
+- SSR support
+- Unit & integration tests
+
 
 ## Development server
 
@@ -25,3 +79,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Author
+Paulraj Chinnappa
+Senior Angular Developer
+🔗 https://github.com/paulraj12
