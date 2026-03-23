@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
   // Auth
   userName = computed(() => authStore.user()?.name ?? 'User');
   role = computed(() => authStore.role());
-  isManager = computed(() => this.role() === 'MANAGER');
 
   // Dashboard state
   stats = signal<any[]>([]);
@@ -114,9 +113,6 @@ export class DashboardComponent implements OnInit {
         }
       }
     };
-
-
-
   }
 
 

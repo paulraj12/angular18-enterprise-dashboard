@@ -1,7 +1,6 @@
 <h2>Dashboard</h2>
 
 <div class="dashboard">
-
    <h4>Welcome, {{ userName() }}</h4>
    <p class="role">Role: {{ role() }}</p>
 
@@ -15,17 +14,7 @@
       }
    </div>
 
-   <!-- Activity Section -->
-   <div class="activity">
-      <h5>Recent Activity</h5>
-      <ul>
-         @for (item of activities(); track item) {
-         <li>✔ {{ item }}</li>
-         }
-      </ul>
-   </div>
-
-   <div class="chart-container">
+   <div class="chart-container mt-5">
 
       <div class="row mb-5">
          <div class="col-md-6">
@@ -57,3 +46,13 @@
 
          </div>
       </div>
+
+         <!-- Activity Section -->
+   <div class="activity">
+      <h5>Recent Activity</h5>
+      <ul>
+         @for (item of activities(); track item) {
+         <li>✔ {{ item }}</li>
+         }
+      </ul>
+   </div>

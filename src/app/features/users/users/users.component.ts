@@ -2,6 +2,7 @@
 import { Component, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { InitalPipe } from '../../../core/pipes/inital.pipe';
 
 interface User {
   id: number;
@@ -17,7 +18,7 @@ interface User {
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, InitalPipe],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

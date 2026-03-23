@@ -5,7 +5,7 @@
     <div class="mb-3">
       <h2>Users</h2>
     </div>
-    <div class="users-list" style="width: 15%; float: left; border-right: 1px solid #ccc; padding-right: 20px;">
+    <div class="users-list" style="width: 25%; float: left; border-right: 1px solid #ccc; padding-right: 20px;">
 
       @if (loading()) {
       <p>Loading users...</p>
@@ -15,7 +15,7 @@
         @for (user of users(); track user.id) {
         <li class="list-group-item" (click)="selectUserId(user.id, user)" [class.active]="selectedUserId() === user.id"
           style="cursor: pointer;">
-          {{ user.firstName }} {{ user.lastName }}
+          {{ user.firstName}} {{ user.lastName}} ({{ user.firstName | initial }}.{{ user.lastName | initial }})
         </li>
         }
       </ul>
@@ -25,7 +25,7 @@
 
 
     <!-- USER DETAILS -->
-    <div class="user-details" style="width: 80%; float: right; padding-left: 20px;">
+    <div class="user-details" style="width: 75%; float: right; padding-left: 20px;">
       @if (selectedUser()) {
       <h5>User Details</h5>
       <hr />

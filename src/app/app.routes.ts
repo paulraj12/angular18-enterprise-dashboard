@@ -20,7 +20,11 @@ export const routes: Routes = [
   loadComponent: () =>
     import('./features/users/users/users.component')
       .then(m => m.UsersComponent)
-}
+},
+
+
+
+
   // {
   //   path: 'users',
   //   canActivate: [authGuard, roleGuard('ADMIN')],
