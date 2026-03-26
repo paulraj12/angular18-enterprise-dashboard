@@ -3,6 +3,7 @@ import { Component, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { InitalPipe } from '../../../core/pipes/inital.pipe';
+import { HighlightDirective } from '../../../core/directives/highlight.directive';
 
 interface User {
   id: number;
@@ -18,7 +19,7 @@ interface User {
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, InitalPipe],
+  imports: [CommonModule, InitalPipe,HighlightDirective],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

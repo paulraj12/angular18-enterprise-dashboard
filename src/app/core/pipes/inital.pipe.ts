@@ -14,3 +14,4 @@ export class InitalPipe implements PipeTransform {
       .join('');
   }
 }
+

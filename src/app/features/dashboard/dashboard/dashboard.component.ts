@@ -5,13 +5,14 @@ import { authStore } from '../../../core/auth/auth.store';
 import { DashboardService } from '../../../core/services/dashboard.service';
 import { ChartConfiguration } from 'chart.js';
 import { ChartComponent } from '../../../shared/components/chart.component';
+import { HighlightDirective } from '../../../core/directives/highlight.directive';
 
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ChartComponent],
+  imports: [CommonModule, ChartComponent,HighlightDirective],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

@@ -7,6 +7,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { Chart, registerables } from 'chart.js';
 import { InitalPipe } from './core/pipes/inital.pipe';
+import { HighlightDirective } from './core/directives/highlight.directive';
 Chart.register(...registerables);
 
 export const appConfig: ApplicationConfig = {
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
               provideRouter(routes), 
               provideClientHydration(),
               provideHttpClient(withInterceptors([authInterceptor])),
-              InitalPipe          
+              InitalPipe,
+              HighlightDirective          
             ]
 };

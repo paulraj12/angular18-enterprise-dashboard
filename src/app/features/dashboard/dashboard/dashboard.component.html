@@ -2,14 +2,14 @@
 
 <div class="dashboard">
    <h4>Welcome, {{ userName() }}</h4>
-   <p class="role">Role: {{ role() }}</p>
+   <p appHighlight class="role">Role: {{ role() }}</p>
 
    <!-- KPI Cards -->
    <div class="cards">
       @for (stat of stats(); track stat.title) {
       <div class="card">
          <h5>{{ stat.title }}</h5>
-         <p class="value">{{ stat.value }}</p>
+         <p  class="value">{{ stat.value }}</p>
       </div>
       }
    </div>
