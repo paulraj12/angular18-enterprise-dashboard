@@ -1,0 +1,37 @@
+<h2>Audit Logs</h2>
+
+<input
+  type="text"
+  placeholder="Search by user..."
+  (input)="onSearch($event)"
+/>
+
+<table border="1" width="100%">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Module</th>
+      <th>Message</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let log of filteredLogs()">
+
+      <td>{{log.id}}</td>
+      <td>{{log.user}}</td>
+      <td>{{log.action}}</td>
+      <td>{{log.module}}</td>
+      <td>{{log.message}}</td>
+      <td>{{log.date}}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>

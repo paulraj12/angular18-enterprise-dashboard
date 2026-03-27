@@ -1,0 +1,64 @@
+<h2>Tasks</h2>
+
+<div class="task-input">
+
+  <input
+    type="text"
+    placeholder="Enter task..."
+    #taskInput
+  />
+
+  <button
+    (click)="newTask.set(taskInput.value); addTask(); taskInput.value=''">
+    Add Task
+  </button>
+
+</div>
+
+<table>
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let task of tasks()">
+
+      <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+
+      <td>
+
+        <span
+          class="status"
+          [class.completed]="task.status === 'Completed'">
+
+          {{task.status}}
+
+        </span>
+
+      </td>
+
+      <td>
+
+        <button (click)="toggleStatus(task.id)">
+          Toggle Status
+        </button>
+
+        <button (click)="deleteTask(task.id)">
+          Delete
+        </button>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>

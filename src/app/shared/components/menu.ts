@@ -49,7 +49,23 @@ import { AuthService } from './../../core/services/auth.service';
     >
       Notifications
     </a>
+    <a
+      *ngIf="isAdmin()"
+      class="nav-link"
+      routerLink="/audit-logs"
+      routerLinkActive="active"
+    >
+      Aduit Logs
+    </a>
 
+  <a
+      *ngIf="isAdmin()"
+      class="nav-link"
+      routerLink="/tasks"
+      routerLinkActive="active"
+    >
+      Tasks
+    </a>
     
   </div>
 

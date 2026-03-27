@@ -32,6 +32,18 @@ export const routes: Routes = [
   loadComponent: () =>
     import('./features/notifications/notifications.component')
       .then(m => m.NotificationsComponent)
+},
+{
+  path: 'audit-logs',
+  loadComponent: () =>
+    import('./features/audit-logs/audit-logs.component')
+      .then(m => m.AuditLogsComponent)
+},
+{
+  path: 'tasks',
+  loadComponent: () =>
+    import('./features/tasks/tasks.component')
+      .then(m => m.TasksComponent)
 }
 
 
