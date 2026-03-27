@@ -19,7 +19,7 @@ interface User {
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, InitalPipe,HighlightDirective],
+  imports: [CommonModule, InitalPipe],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

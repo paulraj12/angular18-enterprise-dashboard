@@ -21,6 +21,14 @@ export const routes: Routes = [
     import('./features/users/users/users.component')
       .then(m => m.UsersComponent)
 },
+{
+  path: 'roles',
+  loadComponent: () =>
+    import('./features/roles/roles.component')
+      .then(m => m.RolesComponent)
+}
+
+
 
 
 

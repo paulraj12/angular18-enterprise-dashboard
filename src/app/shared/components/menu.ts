@@ -33,6 +33,16 @@ import { AuthService } from './../../core/services/auth.service';
     >
       Users
     </a>
+     <a
+      *ngIf="isAdmin()"
+      class="nav-link"
+      routerLink="/roles"
+      routerLinkActive="active"
+    >
+      Roles
+    </a>
+
+    
   </div>
 
   <button class="btn btn-outline-light ms-auto" (click)="logout()">
