@@ -1,1 +1,17 @@
-<p>notifications works!</p>
+<h2>Notifications</h2>
+
+<div class="notification-card"
+     *ngFor="let n of notifications()"
+     [class.read]="n.read">
+
+  <h4>{{n.title}}</h4>
+  <p>{{n.body}}</p>
+
+  <button *ngIf="!n.read"
+          (click)="markAsRead(n.id)">
+      Mark as Read
+  </button>
+
+  <span *ngIf="n.read">✔ Read</span>
+
+</div>
