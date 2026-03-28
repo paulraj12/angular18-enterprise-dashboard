@@ -1,17 +1,17 @@
 <h2>Notifications</h2>
 
-<div class="notification-card"
-     *ngFor="let n of notifications()"
-     [class.read]="n.read">
+<div class="notification-card" *ngFor="let n of notifications()" [class.read]="n.read">
 
-  <h4>{{n.title}}</h4>
-  <p>{{n.body}}</p>
+    <h4>{{n.title}}</h4>
+    <p>{{n.body}}</p>
 
-  <button *ngIf="!n.read"
+    <!-- <button *ngIf="!n.read"
           (click)="markAsRead(n.id)">
       Mark as Read
-  </button>
+  </button> -->
 
-  <span *ngIf="n.read">✔ Read</span>
+    <app-button *ngIf="!n.read" label="Mark as Read" variant="primary" (clicked)="markAsRead(n.id)"></app-button>
+
+    <span *ngIf="n.read">✔ Read</span>
 
 </div>

@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TasksService } from '../../core/services/tasks.service';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss'],
 })

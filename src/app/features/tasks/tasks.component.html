@@ -2,16 +2,13 @@
 
 <div class="task-input">
 
-  <input
-    type="text"
-    placeholder="Enter task..."
-    #taskInput
-  />
+  <input type="text" placeholder="Enter task..." #taskInput />
 
-  <button
-    (click)="newTask.set(taskInput.value); addTask(); taskInput.value=''">
+  <!-- <button (click)="newTask.set(taskInput.value); addTask(); taskInput.value=''">
     Add Task
-  </button>
+  </button> -->
+
+  <app-button label="Add Task" variant="primary" (clicked)="addTask()" taskInput.value=''></app-button>
 
 </div>
 
@@ -35,9 +32,7 @@
 
       <td>
 
-        <span
-          class="status"
-          [class.completed]="task.status === 'Completed'">
+        <span class="status" [class.completed]="task.status === 'Completed'">
 
           {{task.status}}
 
@@ -47,13 +42,17 @@
 
       <td>
 
-        <button (click)="toggleStatus(task.id)">
+        <!-- <button (click)="toggleStatus(task.id)">
           Toggle Status
         </button>
 
         <button (click)="deleteTask(task.id)">
           Delete
-        </button>
+        </button> -->
+
+        <app-button label="Toggle Status" variant="primary" (clicked)="toggleStatus(task.id)"></app-button>
+
+        <app-button label=" Delete" variant="primary" (clicked)="deleteTask(task.id)"></app-button>
 
       </td>
 
