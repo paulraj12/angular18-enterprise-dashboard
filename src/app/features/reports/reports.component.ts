@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReportsService } from '../../core/services/reports.service';
 import Chart from 'chart.js/auto';
 import { ChartComponent } from "../../shared/components/chart.component";
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-reports',
@@ -13,7 +14,7 @@ import { ChartComponent } from "../../shared/components/chart.component";
 })
 export class ReportsComponent implements OnInit, AfterViewInit {
 
-  chart: any;
+  reportChart!: ChartConfiguration<'bar'>;
 
   get reports() {
     return this.reportsService.reports;
@@ -23,10 +24,11 @@ export class ReportsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.reportsService.loadReports();
+    this.createChart();
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.createChart(), 500);
+    //setTimeout(() => this.createChart(), 500);
   }
 
   createChart() {
@@ -34,21 +36,18 @@ export class ReportsComponent implements OnInit, AfterViewInit {
     const labels = this.reports().map(r => `Report ${r.id}`);
     const data = this.reports().map(r => r.views);
 
-    this.chart = new Chart("reportChart", {
-
+      this.reportChart = {
       type: 'bar',
-
       data: {
         labels: labels,
         datasets: [
-          {
-            label: 'Views',
-            data: data
-          }
+          { label: 'Views',
+            data: data }
         ]
       }
+    };
 
-    });
+    
 
   }
 

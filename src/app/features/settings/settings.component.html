@@ -1,0 +1,65 @@
+<h2>Settings</h2>
+
+<div class="tabs">
+
+    <!-- <button (click)="changeTab('general')">General</button> -->
+
+    <app-button label="General" variant="primary" (clicked)="changeTab('general')"></app-button>
+
+    <!-- <button (click)="changeTab('security')">Security</button> -->
+    <app-button label="Security" variant="primary" (clicked)="changeTab('security')"></app-button>
+
+
+    <!-- <button (click)="changeTab('theme')">Theme</button> -->
+    <app-button label="Theme" variant="primary" (clicked)="changeTab('theme')"></app-button>
+
+</div>
+
+<!-- GENERAL SETTINGS -->
+
+<div *ngIf="activeTab() === 'general'" class="tab-content">
+
+    <h3>General Settings</h3>
+
+    <p>
+        <strong>App Name:</strong>
+        {{settings().appName}}
+    </p>
+
+    <p>
+        Email Notifications:
+       
+        <button (click)="toggleEmailNotifications()">
+      {{settings().emailNotifications ? 'Enabled' : 'Disabled'}}
+    </button>
+    </p>
+
+</div>
+
+<!-- SECURITY SETTINGS -->
+
+<div *ngIf="activeTab() === 'security'" class="tab-content">
+
+    <h3>Security Settings</h3>
+
+    <p>
+        Two Factor Authentication:
+        <button (click)="toggleTwoFactor()">
+            {{settings().twoFactorAuth ? 'Enabled' : 'Disabled'}}
+        </button>
+    </p>
+
+</div>
+
+<!-- THEME SETTINGS -->
+
+<div *ngIf="activeTab() === 'theme'" class="tab-content">
+
+    <h3>Theme</h3>
+
+    <button (click)="changeTheme('light-theme')">Light</button>
+    <button (click)="changeTheme('dark-theme')">Dark</button>
+
+    <p>Current Theme: {{settings().theme}}</p>
+
+</div>
