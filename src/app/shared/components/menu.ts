@@ -66,6 +66,15 @@ import { AuthService } from './../../core/services/auth.service';
     >
       Tasks
     </a>
+
+     <a
+      *ngIf="isAdmin()"
+      class="nav-link"
+      routerLink="/reports"
+      routerLinkActive="active"
+    >
+      Reports
+    </a>
     
   </div>
 

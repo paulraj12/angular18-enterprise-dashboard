@@ -1,0 +1,35 @@
+<h2>Reports</h2>
+
+<div class="chart-container" style="height:450px; width:800px;">
+<!-- <app-chart class="card" [config]="chart" id="reportChart"></app-chart> -->
+  <canvas id="reportChart" ></canvas> 
+
+</div>
+
+<h3>Detailed Reports</h3>
+
+<table>
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Views</th>
+      <th>Revenue</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let report of reports()">
+
+      <td>{{report.id}}</td>
+      <td>{{report.title}}</td>
+      <td>{{report.views}}</td>
+      <td>${{report.revenue}}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
